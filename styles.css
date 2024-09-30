@@ -1,0 +1,9 @@
+body {
+  display: flex;
+  justify-items: center;
+  margin: auto;
+  justify-content: center;
+  height: max-content;
+  width: max-content;
+  background-color: rgb(182, 120, 226);
+}

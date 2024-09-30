@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea id="numbers" rows="10" cols="50"></textarea>
+
+    <button id="fill-array">Preencher array</button>
+
+    <textarea id="result" rows="10" cols="50" readonly></textarea>
+
+    <script>
+      const numbersTextarea = document.getElementById("numbers");
+      const fillArrayButton = document.getElementById("fill-array");
+      const resultTextarea = document.getElementById("result");
+
+      fillArrayButton.addEventListener("click", () => {
+        const numbers = numbersTextarea.value
+          .split("\n")
+          .map((line) => line.trim());
+        const modifiedNumbers = numbers.map(addZeroAfter25thChar);
+        resultTextarea.value = modifiedNumbers.join("\n");
+      });
+
+      function addZeroAfter25thChar(str) {
+        if (str.length >= 25) {
+          return str.substring(0, 25) + "0" + str.substring(25);
+        } else {
+          return str;
+        }
+      }
+    </script>
+  </body>
+</html>
